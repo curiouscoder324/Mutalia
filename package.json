@@ -1,26 +1,13 @@
 {
-  "name": "mutalia",
-  "version": "1.0.0",
-  "description": "AI-Powered Study Assistant",
-  "homepage": "https://github.com/curiouscoder324/Mutalia#readme",
-  "bugs": {
-    "url": "https://github.com/curiouscoder324/Mutalia/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/curiouscoder324/Mutalia.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.2"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.2",
+    "nodemailer": "^7.0.3"
   }
 }
