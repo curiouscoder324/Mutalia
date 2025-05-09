@@ -17,7 +17,7 @@
                 <a href="#features" class="nav-button">Features</a>
                 <a href="#about" class="nav-button">About</a>
                 <a href="login.html" class="nav-button login-button">Login</a>
-                <a href="sign Up.html" class="nav-button signup-button">Sign Up</a>
+                <a href="sign-up.html" class="nav-button signup-button">Sign Up</a>
             </div>
         </nav>
         <div class="header-content">
@@ -54,5 +54,32 @@
         <h3>Contact Us</h3>
         <p>Email: support@mutalia.com</p>
     </footer>
+
+    <script>
+        // Check if user is already logged in
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('/api/user');
+                
+                if (response.ok) {
+                    // Update login/signup buttons if user is logged in
+                    const loginButton = document.querySelector('.login-button');
+                    const signupButton = document.querySelector('.signup-button');
+                    
+                    if (loginButton) {
+                        loginButton.textContent = 'Dashboard';
+                        loginButton.href = 'dashboard.html';
+                    }
+                    
+                    if (signupButton) {
+                        signupButton.textContent = 'Logout';
+                        signupButton.href = '/api/logout';
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking authentication:', error);
+            }
+        });
+    </script>
 </body>
 </html>

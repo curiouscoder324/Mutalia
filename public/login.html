@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutalia - Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="MUTALIA.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <span class="brand-name">Mutalia</span>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="index.html#about" class="nav-button">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="signin">
+        <div class="signin-container">
+            <h2>Sign In</h2>
+            <div id="error-message" class="error-message" style="display: none;"></div>
+            <div id="success-message" class="success-message" style="display: none;"></div>
+            <form id="signin-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="signin-button" id="signin-button">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
+            <p><a href="forgot-password.html">Forgot your password?</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <p>Email: support@mutalia.com</p>
+    </footer>
+
+    <script>
+        // Check for registration success message
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('registered') === 'true') {
+                const successMessage = document.getElementById('success-message');
+                successMessage.textContent = 'Registration successful! Please log in.';
+                successMessage.style.display = 'block';
+            }
+        });
+
+        document.getElementById('signin-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            const signinButton = document.getElementById('signin-button');
+            
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            // Validation
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (!passwordRegex.test(password)) {
+                errorMessage.textContent = 'Password must be at least 8 characters long, with at least 1 uppercase letter, 1 lowercase letter, and 1 number.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Disable button during submission
+            signinButton.disabled = true;
+            signinButton.textContent = 'Signing In...';
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    successMessage.textContent = 'Login successful! Redirecting...';
+                    successMessage.style.display = 'block';
+                    
+                    // Redirect to dashboard
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                } else {
+                    errorMessage.textContent = data.message || 'Invalid email or password.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessage.textContent = 'An error occurred. Please try again later.';
+                errorMessage.style.display = 'block';
+            } finally {
+                signinButton.disabled = false;
+                signinButton.textContent = 'Sign In';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,341 +3,352 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: "Arial", sans-serif;
     background-color: #121212; /* Dark background */
     color: #e0e0e0; /* Light text color */
     line-height: 1.6;
-}
-
-/* Header Styling */
-header {
+  }
+  
+  /* Header Styling */
+  header {
     background-color: #000000; /* Black background for header */
     padding: 10px 20px;
-}
-
-/* Navigation Bar */
-nav {
+  }
+  
+  /* Navigation Bar */
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px 0;
-}
-
-.logo-container {
+  }
+  
+  .logo-container {
     display: flex;
     align-items: center;
-}
-
-.logo {
+  }
+  
+  .logo {
     width: 200px; /* Adjust based on your logo's size */
     margin-right: 10px;
-}
-
-.brand-name {
+  }
+  
+  .brand-name {
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
-}
-
-.nav-buttons {
+  }
+  
+  .nav-buttons {
     display: flex;
     gap: 20px;
-}
-
-.nav-button {
+  }
+  
+  .nav-button {
     color: #e0e0e0;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 16px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
+  }
+  
+  .nav-button:hover {
     background-color: #4fc3f7; /* Light blue hover effect */
     color: #000000;
-}
-
-/* Header Content */
-.header-content {
+  }
+  
+  /* Header Content */
+  .header-content {
     text-align: center;
     padding: 50px 20px;
-}
-
-.header-content h1 {
+  }
+  
+  .header-content h1 {
     color: #ffffff;
     margin-bottom: 10px;
-}
-
-.header-content p {
+  }
+  
+  .header-content p {
     color: #bbbbbb;
-}
-
-/* Features Section Styling */
-#features {
+  }
+  
+  /* Features Section Styling */
+  #features {
     background-color: #1e1e1e; /* Slightly lighter black */
     padding: 40px 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     max-width: 1200px;
     margin: 20px auto;
-}
-
-#features h2 {
+  }
+  
+  #features h2 {
     color: #ffffff;
     text-align: center;
     margin-bottom: 40px;
-}
-
-.feature-container {
+  }
+  
+  .feature-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-}
-
-.feature {
+  }
+  
+  .feature {
     background-color: #2a2a2a; /* Dark grey for feature cards */
     padding: 20px;
     border-radius: 8px;
     flex: 1;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature:hover {
+  }
+  
+  .feature:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
-}
-
-.feature h3 {
+  }
+  
+  .feature h3 {
     color: #4fc3f7; /* Light blue for headings */
     margin-bottom: 15px;
-}
-
-.feature p {
+  }
+  
+  .feature p {
     color: #bbbbbb;
-}
-
-/* About Section Styling */
-#about {
+  }
+  
+  /* About Section Styling */
+  #about {
     background-color: #1e1e1e; /* Matching the features section */
     padding: 20px;
     border-radius: 8px;
     max-width: 1200px;
     margin: 20px auto;
-}
-
-#about h2, #about h3 {
+  }
+  
+  #about h2,
+  #about h3 {
     color: #ffffff;
     margin-bottom: 15px;
-}
-
-#about p {
+  }
+  
+  #about p {
     color: #bbbbbb;
     margin-bottom: 10px;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #333333;
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
-}
-
-footer h3 {
+  }
+  
+  footer h3 {
     margin-bottom: 10px;
-}
-
-footer p {
+  }
+  
+  footer p {
     margin: 0;
     color: #bbbbbb;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  }
+  
+  /* Sign-In Section */
+  #signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #121212;
+    padding: 20px;
+  }
+  
+  .signin-container {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .signin-container h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    color: #bbbbbb;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4fc3f7;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+  
+  .signin-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4fc3f7;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signin-button:hover {
+    background-color: #3ba3d7;
+  }
+  
+  .signin-button:disabled {
+    background-color: #2a5d77;
+    cursor: not-allowed;
+  }
+  
+  .signin-container p {
+    color: #bbbbbb;
+    margin-top: 15px;
+  }
+  
+  .signin-container a {
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+  
+  .signin-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sign-Up Section */
+  #signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #121212;
+    padding: 20px;
+  }
+  
+  .signup-container {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .signup-container h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .signup-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4fc3f7;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-button:hover {
+    background-color: #3ba3d7;
+  }
+  
+  .signup-button:disabled {
+    background-color: #2a5d77;
+    cursor: not-allowed;
+  }
+  
+  .signup-container p {
+    color: #bbbbbb;
+    margin-top: 15px;
+  }
+  
+  .signup-container a {
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+  
+  .signup-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error and Success Messages */
+  .error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .success-message {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #4caf50;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
     }
-
+  
     .nav-buttons {
-        margin-top: 10px;
-        gap: 10px;
+      margin-top: 10px;
+      gap: 10px;
     }
-
+  
     .nav-button {
-        padding: 6px 12px;
+      padding: 6px 12px;
     }
-
+  
     .header-content h1 {
-        font-size: 24px;
+      font-size: 24px;
     }
-
+  
     .header-content p {
-        font-size: 14px;
+      font-size: 14px;
     }
-
+  
     .feature-container {
-        flex-direction: column;
+      flex-direction: column;
     }
-
+  
     .feature {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
     }
-}
-
-/* Sign-In Section */
-#signin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    background-color: #121212;
-    padding: 20px;
-}
-
-.signin-container {
-    background-color: #1e1e1e;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-}
-
-.signin-container h2 {
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    color: #bbbbbb;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #4fc3f7;
-    border-radius: 5px;
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-}
-
-.signin-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4fc3f7;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.signin-button:hover {
-    background-color: #3ba3d7;
-}
-
-.signin-container p {
-    color: #bbbbbb;
-    margin-top: 15px;
-}
-
-.signin-container a {
-    color: #4fc3f7;
-    text-decoration: none;
-}
-
-.signin-container a:hover {
-    text-decoration: underline;
-}
-
-/* Sign-Up Section */
-#signup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    background-color: #121212;
-    padding: 20px;
-}
-
-.signup-container {
-    background-color: #1e1e1e;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-}
-
-.signup-container h2 {
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    color: #bbbbbb;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #4fc3f7;
-    border-radius: 5px;
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-}
-
-.signup-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4fc3f7;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.signup-button:hover {
-    background-color: #3ba3d7;
-}
-
-.signup-container p {
-    color: #bbbbbb;
-    margin-top: 15px;
-}
-
-.signup-container a {
-    color: #4fc3f7;
-    text-decoration: none;
-}
-
-.signup-container a:hover {
-    text-decoration: underline;
-}
+  }
+  
