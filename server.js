@@ -6,6 +6,7 @@ const nodemailer = require("nodemailer")
 const crypto = require("crypto")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
+const path = require("path") // Added path module
 require("dotenv").config()
 
 const app = express()
@@ -20,6 +21,9 @@ app.use(
     credentials: true,
   }),
 )
+
+// Add static file serving - serve files from the public directory
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Connect to MongoDB
 mongoose
@@ -306,6 +310,11 @@ app.post("/api/auth/reset-password", async (req, res) => {
     console.error("Reset password error:", error)
     res.status(500).json({ message: "Server error" })
   }
+})
+
+// Add catch-all route to serve index.html for any routes not matched by the API
+app.get('*name', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
 // Start server
