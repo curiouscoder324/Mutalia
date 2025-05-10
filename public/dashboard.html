@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutalia - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" href="MUTALIA.png" type="image/x-icon">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <span class="brand-name">Mutalia</span>
+            </div>
+            <div class="sidebar-menu">
+                <a href="#" class="sidebar-item active" data-section="overview">
+                    <span class="sidebar-icon">📊</span>
+                    <span class="sidebar-text">Overview</span>
+                </a>
+                <a href="#" class="sidebar-item" data-section="documents">
+                    <span class="sidebar-icon">📄</span>
+                    <span class="sidebar-text">Documents</span>
+                </a>
+                <a href="#" class="sidebar-item" data-section="notes">
+                    <span class="sidebar-icon">📝</span>
+                    <span class="sidebar-text">Notes</span>
+                </a>
+                <a href="#" class="sidebar-item" data-section="chatbot">
+                    <span class="sidebar-icon">🤖</span>
+                    <span class="sidebar-text">AI Chatbot</span>
+                </a>
+                <a href="#" class="sidebar-item" data-section="forum">
+                    <span class="sidebar-icon">💬</span>
+                    <span class="sidebar-text">Discussion Forum</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" id="logout-button" class="sidebar-item">
+                    <span class="sidebar-icon">🚪</span>
+                    <span class="sidebar-text">Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="user-info">
+                    <span id="user-greeting">Welcome, User</span>
+                    <div class="user-avatar">👤</div>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="content-wrapper">
+                <!-- Overview Section -->
+                <section id="overview" class="content-section active">
+                    <h1>Dashboard Overview</h1>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-info">
+                                <h3>Documents</h3>
+                                <p class="stat-number">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-info">
+                                <h3>Notes</h3>
+                                <p class="stat-number">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💬</div>
+                            <div class="stat-info">
+                                <h3>Forum Posts</h3>
+                                <p class="stat-number">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h2>Recent Activity</h2>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">🔔</div>
+                                <div class="activity-details">
+                                    <p class="activity-text">Welcome to Mutalia! Explore your dashboard to get started.</p>
+                                    <p class="activity-time">Just now</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Section -->
+                <section id="documents" class="content-section">
+                    <h1>Documents</h1>
+                    <div class="section-header">
+                        <p>Upload and manage your study materials</p>
+                        <button class="primary-button" id="upload-document-btn">Upload Document</button>
+                    </div>
+
+                    <div class="document-upload-form" style="display: none;">
+                        <h3>Upload New Document</h3>
+                        <form id="document-form">
+                            <div class="form-group">
+                                <label for="document-title">Title</label>
+                                <input type="text" id="document-title" placeholder="Enter document title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="document-file">File</label>
+                                <input type="file" id="document-file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="document-description">Description (optional)</label>
+                                <textarea id="document-description" placeholder="Enter document description"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="secondary-button" id="cancel-upload-btn">Cancel</button>
+                                <button type="submit" class="primary-button">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="documents-list">
+                        <div class="empty-state">
+                            <div class="empty-icon">📄</div>
+                            <h3>No Documents Yet</h3>
+                            <p>Upload your first document to get started</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notes Section -->
+                <section id="notes" class="content-section">
+                    <h1>Notes</h1>
+                    <div class="section-header">
+                        <p>Create and organize your study notes</p>
+                        <button class="primary-button" id="create-note-btn">Create Note</button>
+                    </div>
+
+                    <div class="note-editor" style="display: none;">
+                        <h3>Create New Note</h3>
+                        <form id="note-form">
+                            <div class="form-group">
+                                <label for="note-title">Title</label>
+                                <input type="text" id="note-title" placeholder="Enter note title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="note-content">Content</label>
+                                <textarea id="note-content" placeholder="Enter note content" rows="10" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="secondary-button" id="cancel-note-btn">Cancel</button>
+                                <button type="submit" class="primary-button">Save</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="notes-list">
+                        <div class="empty-state">
+                            <div class="empty-icon">📝</div>
+                            <h3>No Notes Yet</h3>
+                            <p>Create your first note to get started</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Chatbot Section -->
+                <section id="chatbot" class="content-section">
+                    <h1>AI Chatbot</h1>
+                    <p>Ask questions and get instant answers from our AI assistant</p>
+
+                    <div class="chatbot-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot-message">
+                                <div class="message-avatar">🤖</div>
+                                <div class="message-content">
+                                    <p>Hello! I'm your AI study assistant. How can I help you today?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="user-message" placeholder="Type your question here...">
+                            <button id="send-message-btn">Send</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Discussion Forum Section -->
+                <section id="forum" class="content-section">
+                    <h1>Discussion Forum</h1>
+                    <div class="section-header">
+                        <p>Discuss topics and share knowledge with peers</p>
+                        <button class="primary-button" id="create-topic-btn">Create Topic</button>
+                    </div>
+
+                    <div class="forum-topics">
+                        <div class="empty-state">
+                            <div class="empty-icon">💬</div>
+                            <h3>No Topics Yet</h3>
+                            <p>Create the first topic to start a discussion</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

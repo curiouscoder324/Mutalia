@@ -59,7 +59,9 @@
         // Check if user is already logged in
         window.addEventListener('DOMContentLoaded', async () => {
             try {
-                const response = await fetch('/api/user');
+                const response = await fetch('/api/auth/user', {
+                    credentials: 'include' // Important for cookies
+                });
                 
                 if (response.ok) {
                     // Update login/signup buttons if user is logged in
@@ -73,13 +75,36 @@
                     
                     if (signupButton) {
                         signupButton.textContent = 'Logout';
-                        signupButton.href = '/api/logout';
+                        signupButton.href = '#';
+                        signupButton.addEventListener('click', async (e) => {
+                            e.preventDefault();
+                            await logout();
+                        });
                     }
                 }
             } catch (error) {
                 console.error('Error checking authentication:', error);
             }
         });
+
+        // Logout function
+        async function logout() {
+            try {
+                const response = await fetch('/api/auth/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    // Reload the page after successful logout
+                    window.location.reload();
+                } else {
+                    console.error('Logout failed');
+                }
+            } catch (error) {
+                console.error('Error during logout:', error);
+            }
+        }
     </script>
 </body>
 </html>

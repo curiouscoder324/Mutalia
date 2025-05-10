@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mutalia - Forgot Password</title>
+    <title>Mutalia - Test Email</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="MUTALIA.png" type="image/x-icon">
 </head>
@@ -15,25 +15,24 @@
             </div>
             <div class="nav-buttons">
                 <a href="index.html" class="nav-button">Home</a>
-                <a href="login.html" class="nav-button">Login</a>
             </div>
         </nav>
     </header>
 
     <section id="signin">
         <div class="signin-container">
-            <h2>Forgot Password</h2>
+            <h2>Test Email Functionality</h2>
             <div id="error-message" class="error-message" style="display: none;"></div>
             <div id="success-message" class="success-message" style="display: none;"></div>
-            <p>Enter your email address and we'll send you instructions to reset your password.</p>
-            <form id="forgot-password-form">
+            <p>Enter an email address to send a test email.</p>
+            <form id="test-email-form">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
-                <button type="submit" class="signin-button" id="submit-button">Send Reset Link</button>
+                <button type="submit" class="signin-button" id="submit-button">Send Test Email</button>
             </form>
-            <p><a href="login.html">Back to Login</a></p>
+            <p><a href="index.html">Back to Home</a></p>
         </div>
     </section>
 
@@ -43,7 +42,7 @@
     </footer>
 
     <script>
-        document.getElementById('forgot-password-form').addEventListener('submit', async function(event) {
+        document.getElementById('test-email-form').addEventListener('submit', async function(event) {
             event.preventDefault();
             
             const email = document.getElementById('email').value;
@@ -69,7 +68,7 @@
             submitButton.textContent = 'Sending...';
 
             try {
-                const response = await fetch('/api/forgot-password', {
+                const response = await fetch('/api/auth/test-email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -80,11 +79,11 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    successMessage.textContent = data.message || 'If an account with that email exists, we have sent password reset instructions.';
+                    successMessage.textContent = data.message || 'Test email sent successfully!';
                     successMessage.style.display = 'block';
-                    document.getElementById('forgot-password-form').reset();
+                    document.getElementById('test-email-form').reset();
                 } else {
-                    errorMessage.textContent = data.message || 'An error occurred. Please try again.';
+                    errorMessage.textContent = data.message || 'Failed to send test email.';
                     errorMessage.style.display = 'block';
                 }
             } catch (error) {
@@ -92,7 +91,7 @@
                 errorMessage.style.display = 'block';
             } finally {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Send Reset Link';
+                submitButton.textContent = 'Send Test Email';
             }
         });
     </script>

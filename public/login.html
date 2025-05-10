@@ -72,16 +72,9 @@
 
             // Validation
             const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
             if (!emailRegex.test(email)) {
                 errorMessage.textContent = 'Please enter a valid email address.';
-                errorMessage.style.display = 'block';
-                return;
-            }
-
-            if (!passwordRegex.test(password)) {
-                errorMessage.textContent = 'Password must be at least 8 characters long, with at least 1 uppercase letter, 1 lowercase letter, and 1 number.';
                 errorMessage.style.display = 'block';
                 return;
             }
@@ -91,12 +84,13 @@
             signinButton.textContent = 'Signing In...';
 
             try {
-                const response = await fetch('/api/login', {
+                const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify({ email, password }),
+                    credentials: 'include'
                 });
 
                 const data = await response.json();
